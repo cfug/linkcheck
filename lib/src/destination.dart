@@ -154,12 +154,12 @@ class Destination {
   }
 
   String get statusDescription {
-    if (isUnsupportedScheme) return 'scheme unsupported';
-    if (isInvalid) return 'invalid URL';
-    if (didNotConnect) return 'connection failed';
+    if (isUnsupportedScheme) return 'scheme unsupported ($statusCode)';
+    if (isInvalid) return 'invalid URL ($statusCode)';
+    if (didNotConnect) return 'connection failed ($statusCode)';
     if (wasDeniedByRobotsTxt) return 'denied by robots.txt';
-    if (hasNoMimeType) return 'server reported no mime type';
-    if (!wasTried) return "wasn't tried";
+    if (hasNoMimeType) return 'server reported no mime type ($statusCode)';
+    if (!wasTried) return "wasn't tried ($statusCode)";
     if (statusCode == 200) return 'HTTP 200';
     if (isRedirected) {
       final path =
